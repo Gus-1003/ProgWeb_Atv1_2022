@@ -1,6 +1,6 @@
 package ufrn.com.trabalho.Classes;
 
-public class Produto {
+public class Produtos {
 
     int id;
     String nome;
@@ -8,7 +8,7 @@ public class Produto {
     String pesagem;
     float preco;
 
-    public Produto(int id, String nome, String marca, String pesagem, float preco) {
+    public Produtos(int id, String nome, String marca, String pesagem, float preco) {
         super();
         this.id = id;
         this.nome = nome;

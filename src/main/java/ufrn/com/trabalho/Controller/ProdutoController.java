@@ -10,17 +10,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import ufrn.com.trabalho.Classes.Produtos;
 import ufrn.com.trabalho.Persistencia.ProdutosDao;
 
 @Controller
-@RequestMapping("/cadastrar")
-public class CadastroUsuarioController {
+@RequestMapping("/Produto")
+public class ProdutoController {
 
-    ClienteDao ClienDao = new ProdutosDao();
+    ProdutosDao ProduDao = new ProdutosDao();
 
     @PostMapping
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        
+        String id = request.getParameter("id");
+        String nome = request.getParameter("nome");
+        String marca = request.getParameter("marca");
+        String pesagem = request.getParameter("pesagem");
+        String preco = request.getParameter("preco");
+
+        Produtos amostra = new Produtos(Integer.parseInt(id), nome, marca, pesagem, Float.parseFloat(preco));
+
+        ProduDao.salvar(amostra);
         response.sendRedirect("/Main");
     }
 }

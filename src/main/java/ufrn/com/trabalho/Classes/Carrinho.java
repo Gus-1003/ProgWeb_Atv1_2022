@@ -3,25 +3,25 @@ package ufrn.com.trabalho.Classes;
 import java.util.ArrayList;
 
 public class Carrinho {
-    public Carrinho(ArrayList<Produto> produtos) {
+    public Carrinho(ArrayList<Produtos> produtos) {
         super();
         this.produtos = produtos;
     }
     
-    ArrayList<Produto> produtos;
+    ArrayList<Produtos> produtos;
     
-    public ArrayList<Produto> getProdutos() {
+    public ArrayList<Produtos> getProdutos() {
         return produtos;
     }
 
-    public void setProdutos(ArrayList<Produto> produtos) {
+    public void setProdutos(ArrayList<Produtos> produtos) {
         this.produtos = produtos;
     }
 
-    public Produto getProduto (int id){
-        Produto mp = null;
+    public Produtos getProduto (int id){
+        Produtos mp = null;
         
-        for (Produto p : produtos){
+        for (Produtos p : produtos){
             if (p.getId() == id){
                 return p;
             }
@@ -30,11 +30,11 @@ public class Carrinho {
     }
 
     public void removeProduto (int id){
-        Produto p = getProduto(id);
+        Produtos p = getProduto(id);
         produtos.remove(p); 
     }
 
-    public void addProduto (Produto p){
+    public void addProduto (Produtos p){
         produtos.add(p);
     }
 }
