@@ -7,23 +7,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import ufrn.com.trabalho.Classes.Produto;
+import ufrn.com.trabalho.Persistencia.ProdutosDao;
+
+@Controller
+@RequestMapping("/cadastrar")
 public class CadastroUsuarioController {
 
-    @Autowired
-    ServletContext servletContext;
+    ProdutosDao ProduDao = new ProdutosDao();
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public void dologin(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        var aula = request.getParameter("aula");
+    @PostMapping
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String id = request.getParameter("id");
+        String nome = request.getParameter("nome");
+        String marca = request.getParameter("marca");
+        String pesagem = request.getParameter("pesagem");
+        String preco = request.getParameter("preco");
 
-        String admin = servletContext.getInitParameter("admin");
-        String teste = servletContext.getInitParameter("aula");
+        Produto mod = new Produto(Integer.parseInt(id), nome, marca, pesagem, Float.parseFloat(preco));
 
-        response.setContentType("text/html");
-        response.setStatus(210);
-        response.getWriter().println("<html><body>Hello world " + aula + " admin:" + admin + teste + "</body></html>");
+        ProduDao.salvar(mod);
+        response.sendRedirect("/admin");
     }
 }

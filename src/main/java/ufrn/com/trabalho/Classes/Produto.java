@@ -3,51 +3,58 @@ package ufrn.com.trabalho.Classes;
 public class Produto {
 
     int id;
-    int preco;
     String nome;
-    String Descricao;
-    int estoque;
-    
-    public Produto(int id, int preco, String nome, String descricao, int estoque) {
+    String marca;
+    String pesagem;
+    float preco;
+
+    public Produto(int id, String nome, String marca, String pesagem, float preco) {
         super();
         this.id = id;
-        this.preco = preco;
         this.nome = nome;
-        this.Descricao = descricao;
-        this.estoque = estoque;
+        this.marca = marca;
+        this.pesagem = pesagem;
+        this.preco = preco;
     }
 
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
-    public int getPreco() {
-        return preco;
-    }
-    public void setPreco(int preco) {
-        this.preco = preco;
-    }
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public String getDescricao() {
-        return Descricao;
+
+    public String getMarca() {
+        return marca;
     }
-    public void setDescricao(String descricao) {
-        Descricao = descricao;
+
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
-    public int getEstoque() {
-        return estoque;
+
+    public String getPesagem() {
+        return pesagem;
     }
-    public void incrementaEstoque() {
-        this.estoque++;
+
+    public void setPesagem(String pesagem) {
+        pesagem = pesagem;
     }
-    public void diminuiEstoque() {
-        this.estoque--;
-    }        
+
+    public float getPreco() {
+        return preco;
+    }
+
+    public void setPreco(float preco) {
+        this.preco = preco;
+    }
+
 }
