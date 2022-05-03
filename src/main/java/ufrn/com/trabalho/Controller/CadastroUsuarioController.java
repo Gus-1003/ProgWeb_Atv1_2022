@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-public class UsuarioController {
-    
+public class CadastroUsuarioController {
+
     @Autowired
     ServletContext servletContext;
 
@@ -24,6 +24,6 @@ public class UsuarioController {
 
         response.setContentType("text/html");
         response.setStatus(210);
-        response.getWriter().println("<html><body>Hello world "+ aula + " admin:" +admin+teste+ "</body></html>");
+        response.getWriter().println("<html><body>Hello world " + aula + " admin:" + admin + teste + "</body></html>");
     }
 }

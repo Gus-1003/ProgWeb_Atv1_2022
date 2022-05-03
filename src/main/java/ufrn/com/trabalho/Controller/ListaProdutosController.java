@@ -1,5 +1,5 @@
 package ufrn.com.trabalho.Controller;
 
-public class LojistaController {
-    
+public class ListaProdutosController {
+
 }
