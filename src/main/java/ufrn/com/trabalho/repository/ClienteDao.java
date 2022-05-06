@@ -1,13 +1,18 @@
-package ufrn.com.trabalho.Persistencia;
+package ufrn.com.trabalho.repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-import ufrn.com.trabalho.Classes.Usuario;
+import ufrn.com.trabalho.model.Usuario;
 
 public class ClienteDao {
-    
+
+                        // Instacia um objeto conexão
+    // ----------------------------------------------------------------------------
     private static Conexao conexao = new Conexao();
+
+                        // Desenvolve 
+    // ----------------------------------------------------------------------------
     private final String CREATE = " CREATE TABLE public.Cliente(" +
             " Id_Pk character varying COLLATE pg_catalog.\"default\" NOT NULL," +
             " nome character varying COLLATE pg_catalog.\"default\"," +
@@ -15,33 +20,19 @@ public class ClienteDao {
             " senha character varying COLLATE pg_catalog.\"default\", " +
             "CONSTRAINT Cliente_pkey PRIMARY KEY (Id_Pk));";
 
+
     public ClienteDao() {
-        conexao = new Conexao(System.getenv("DATABASE_HOST"), System.getenv("DATABASE_PORT"),
-                System.getenv("DATABASE_NAME"), System.getenv("DATABASE_USERNAME"), System.getenv("DATABASE_PASSWORD"));
+        conexao = new Conexao(System.getenv("DATABASE_HOST"), 
+            System.getenv("DATABASE_PORT"),
+            System.getenv("DATABASE_NAME"),
+            System.getenv("DATABASE_USERNAME"),
+            System.getenv("DATABASE_PASSWORD"));
     }
 
-    public void salvar(Usuario produto) {
+// Métodos:
 
-        // estabelecer a conexao com o banco de dados
-        try {
-            conexao.conectar();
-
-            PreparedStatement pst = conexao.getCon()
-                    .prepareStatement("insert into Produto(id,nome,marca,pesagem,preco) values (?,?,?,?,?)");
-            pst.setString(1, Usuario.getId());
-            pst.setString(2, Usuario.getNome());
-            pst.setString(3, Usuario.getEmail());
-            pst.setString(4, Usuario.getSenha());
-            pst.execute();
-
-            conexao.desconectar();
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(ClienteDao.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        }
-
-    }
-
+            // Listar todos os Usuarios / Funcionarios
+    // -------------------------------------------------------------    
     public static ArrayList<Usuario> listar() {
 
         ArrayList<Usuario> array = new ArrayList<>();
@@ -69,6 +60,8 @@ public class ClienteDao {
         return array;
     }
 
+            // Cadastrar Funcionarios
+    // -------------------------------------------------------------   
     public void Cadastro() {
 
         try {
@@ -82,6 +75,8 @@ public class ClienteDao {
 
     }
 
+                // Buscar por ID
+    // -------------------------------------------------------------   
     public Usuario buscaId(String id) {
 
         // estabelecer a conexao com o banco de dados

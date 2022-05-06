@@ -1,4 +1,4 @@
-package ufrn.com.trabalho.Controller;
+package ufrn.com.trabalho.controller;
 
 import java.io.IOException;
 
@@ -10,8 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import ufrn.com.trabalho.Classes.Produtos;
-import ufrn.com.trabalho.Persistencia.ProdutosDao;
+import ufrn.com.trabalho.model.Produtos;
+import ufrn.com.trabalho.repository.ProdutosDao;
 
 @Controller
 @RequestMapping("/Produto")
@@ -29,7 +29,23 @@ public class ProdutoController {
 
         Produtos amostra = new Produtos(Integer.parseInt(id), nome, marca, pesagem, Float.parseFloat(preco));
 
-        ProduDao.salvar(amostra);
+        ProduDao.Cadastro(amostra);
         response.sendRedirect("/Main");
     }
 }
+
+
+// Cadastrar Produto - Responsabilidade do ADM
+// --------------------------------------
+
+
+// --------------------------------------
+
+
+
+// Listar Produtos
+// --------------------------------------
+
+
+// --------------------------------------
+

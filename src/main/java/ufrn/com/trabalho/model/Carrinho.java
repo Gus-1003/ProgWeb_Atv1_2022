@@ -1,4 +1,4 @@
-package ufrn.com.trabalho.Classes;
+package ufrn.com.trabalho.model;
 
 import java.util.ArrayList;
 

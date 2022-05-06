@@ -1,11 +1,11 @@
-package ufrn.com.trabalho.Controller;
+package ufrn.com.trabalho.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
+//import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,13 +14,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
-@RequestMapping("/Main")
+@RequestMapping("/Main")     // Pagina Principal - Responsavel pelo login - Deve ser associado a um método "Validação" na classe DAO de cliente;
 public class MainController {
 
     @GetMapping
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        String email, senha;
+        //String email, senha;
 
         response.getWriter().println(" <!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +

@@ -4,22 +4,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/Usuario")
-public class ClienteController {
-
+@RequestMapping("/Carrinho")
+public class CarrinhoController {
 
 }
 
-// Login - sign in
+// Visualizar Carrinho
 // --------------------------------------
 
-
-// --------------------------------------
-
-
-
-// Cadastro do usuario - sign up
-// --------------------------------------
-
+    // Stringtokenizer - Id´s dos produtos passados por cokies
 
 // --------------------------------------

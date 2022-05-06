@@ -1,4 +1,4 @@
-package ufrn.com.trabalho.Persistencia;
+package ufrn.com.trabalho.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
