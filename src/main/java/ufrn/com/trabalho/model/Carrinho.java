@@ -3,38 +3,38 @@ package ufrn.com.trabalho.model;
 import java.util.ArrayList;
 
 public class Carrinho {
-    public Carrinho(ArrayList<Produtos> produtos) {
+    public Carrinho(ArrayList<Produto> produtos) {
         super();
         this.produtos = produtos;
     }
-    
-    ArrayList<Produtos> produtos;
-    
-    public ArrayList<Produtos> getProdutos() {
+
+    ArrayList<Produto> produtos;
+
+    public ArrayList<Produto> getProdutos() {
         return produtos;
     }
 
-    public void setProdutos(ArrayList<Produtos> produtos) {
+    public void setProdutos(ArrayList<Produto> produtos) {
         this.produtos = produtos;
     }
 
-    public Produtos getProduto (int id){
-        Produtos mp = null;
-        
-        for (Produtos p : produtos){
-            if (p.getId() == id){
+    public Produto getProduto(int id) {
+        Produto mp = null;
+
+        for (Produto p : produtos) {
+            if (p.getId() == id) {
                 return p;
             }
         }
         return mp;
     }
 
-    public void removeProduto (int id){
-        Produtos p = getProduto(id);
-        produtos.remove(p); 
+    public void removeProduto(int id) {
+        Produto p = getProduto(id);
+        produtos.remove(p);
     }
 
-    public void addProduto (Produtos p){
+    public void addProduto(Produto p) {
         produtos.add(p);
     }
 }

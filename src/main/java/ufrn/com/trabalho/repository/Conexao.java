@@ -1,42 +1,20 @@
 package ufrn.com.trabalho.repository;
 
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Conexao {
-    String url;
-    String usuario;
-    String senha;
-    Connection conexao;
+    public static Connection getConnection() throws SQLException, URISyntaxException {
+        String dbUri = System.getenv("DATABASE_HOST");
+        String dbPort = System.getenv("DATABASE_PORT");
+        String dbName = System.getenv("DATABASE_NAME");
 
-    public Conexao() {
+        String username = System.getenv("DATABASE_USERNAME");
+        String password = System.getenv("DATABASE_PASSWORD");
+        String dbUrl = "jdbc:postgresql://" + dbUri + ':' + dbPort + "/" + dbName + "?serverTimezone=UTC";
 
-    }
-
-    public Conexao(String host, String porta, String db, String usuario, String senha) {
-        this.url = "jdbc:postgresql://" + host + ':' + porta + "/" + db + "?serverTimezone=UTC";
-        this.usuario = usuario;
-        this.senha = senha;
-    }
-
-    public void conectar() {
-        try {
-            Class.forName("org.postgresql.Driver");
-            conexao = DriverManager.getConnection(url, usuario, senha);
-        } catch (Exception e) {
-            System.out.println("Erro na conexão: " + e.getMessage());
-        }
-    }
-
-    public void desconectar() {
-        try {
-            conexao.close();
-        } catch (Exception e) {
-            System.out.println("Erro na desconexão: " + e.getMessage());
-        }
-    }
-
-    public Connection getCon() {
-        return conexao;
+        return DriverManager.getConnection(dbUrl, username, password);
     }
 }
