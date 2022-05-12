@@ -43,8 +43,6 @@ public class UsuarioController {
         usuario.setCargo(1);
 
         usuarioDAO.cadastrar(usuario);
-
-        response.sendRedirect("http://localhost:8080/login.html");
     }
 
     /*@GetMapping(value = "/verificarAcesso" )
@@ -93,6 +91,16 @@ public class UsuarioController {
 
     @GetMapping(value = "/cadastroFuncionario")
     public void doCadastroFuncionario(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.getWriter().println("cadastroFuncionario");
+        var nome = request.getParameter("nome");
+        var senha = request.getParameter("senha");
+        var email = request.getParameter("email");
+
+        usuario.setNome(nome);
+        usuario.setSenha(senha);
+        usuario.setEmail(email);
+
+        usuario.setCargo(2);
+
+        usuarioDAO.cadastrar(usuario);
     }
 }
