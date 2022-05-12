@@ -1,20 +1,38 @@
 package ufrn.com.trabalho.repository;
 
-import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class Conexao {
-    public static Connection getConnection() throws SQLException, URISyntaxException {
-        String dbUri = System.getenv("DATABASE_HOST");
-        String dbPort = System.getenv("DATABASE_PORT");
-        String dbName = System.getenv("DATABASE_NAME");
+    private String caminho;
+    private String usuario;
+    private String senha;
+    private Connection conexao;
 
-        String username = System.getenv("DATABASE_USERNAME");
-        String password = System.getenv("DATABASE_PASSWORD");
-        String dbUrl = "jdbc:postgresql://" + dbUri + ':' + dbPort + "/" + dbName + "?serverTimezone=UTC";
+    public Conexao(String c, String u, String s) {
+        this.caminho = c;
+        this.usuario = u;
+        this.senha = s;
+    }
 
-        return DriverManager.getConnection(dbUrl, username, password);
+    public void conectar() {
+        try {
+            Class.forName("org.postgresql.Driver");
+            conexao = DriverManager.getConnection(caminho, usuario, senha);
+        } catch (Exception e) {
+            System.out.println("Erro de conexão");
+        }
+    }
+
+    public void desconectar() {
+        try {
+            conexao.close();
+        } catch (Exception e) {
+            System.out.println("Erro de conexão: " + e.getMessage());
+        }
+    }
+
+    public Connection getConexao() {
+        return conexao;
     }
 }

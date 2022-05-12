@@ -10,37 +10,26 @@ CREATE DATABASE "Prog_web"
     CONNECTION LIMIT = -1;
 
 ======================================================================
-CREATE TABLE IF NOT EXISTS public."Cliente"
+-- DROP TABLE IF EXISTS public."Usuario";
+
+CREATE TABLE IF NOT EXISTS public."Usuario"
 (
     "Id_Pk" integer NOT NULL,
     nome character varying(50)[] COLLATE pg_catalog."default" NOT NULL,
     email character varying(60)[] COLLATE pg_catalog."default" NOT NULL,
     senha character varying(10)[] COLLATE pg_catalog."default" NOT NULL,
+    tipo integer NOT NULL,
     CONSTRAINT "Cliente_pkey" PRIMARY KEY ("Id_Pk")
 )
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS public."Cliente"
+ALTER TABLE IF EXISTS public."Usuario"
     OWNER to postgres;
-
-=======================================================================
-CREATE TABLE IF NOT EXISTS public."Funcionario"
-(
-    "Id_Pk" integer NOT NULL,
-    nome character varying(50)[] COLLATE pg_catalog."default" NOT NULL,
-    email character varying(60)[] COLLATE pg_catalog."default" NOT NULL,
-    senha character varying(10)[] COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT "Funcionario_pkey" PRIMARY KEY ("Id_Pk")
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public."Funcionario"
-    OWNER to postgres;
-
 
 ============================================================================
+-- DROP TABLE IF EXISTS public."Produto";
+
 CREATE TABLE IF NOT EXISTS public."Produto"
 (
     "Id_PK" integer NOT NULL,

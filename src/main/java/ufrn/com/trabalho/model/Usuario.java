@@ -13,15 +13,16 @@ public class Usuario {
     // --------------------------------------
 
     // Atributo que separa o cadastro entre as tebalas (Usuario e funcionario)
-    int cargo;
+    int tipo;
     // --------------------------------------
 
     // Construtor da Classe
-    public Usuario(int id, String nome, String senha, int cargo) {
+    public Usuario(int id, String nome, String email, String senha, int tipo) {
         this.id = id;
         this.nome = nome;
+        this.email = email;
         this.senha = senha;
-        this.cargo = cargo;
+        this.tipo = tipo;
     }
 
     public Usuario() {
@@ -52,6 +53,17 @@ public class Usuario {
     }
     // --------------------------------------
 
+    // NOME
+    // --------------------------------------
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.nome = email;
+    }
+    // --------------------------------------
+
     // SENHA
     // --------------------------------------
     public String getSenha() {
@@ -63,14 +75,14 @@ public class Usuario {
     }
     // --------------------------------------
 
-    // CARGO
+    // Tipo
     // --------------------------------------
-    public int getCargo() {
-        return cargo;
+    public int getTipo() {
+        return tipo;
     }
 
-    public void setCargo(int Cargo) {
-        this.cargo = Cargo;
+    public void setCargo(int Tipo) {
+        this.tipo = Tipo;
     }
     // --------------------------------------
 }
